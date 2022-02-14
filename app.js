@@ -36,8 +36,11 @@ document.getElementById('key-pad').addEventListener('click',
     })
 
 
+    const actionValue = document.getElementById('action-value');
 document.getElementById('submit-btn').addEventListener('click', function () {
-    console.log('clicked submit');
+   
+
+
     const notifyFailed = document.getElementById('notify-fail');
     const notifySuccess = document.getElementById('notify-success');
     if(pinDisplay.value==keyDisplay.value){
@@ -47,5 +50,15 @@ document.getElementById('submit-btn').addEventListener('click', function () {
     else{
         notifyFailed.style.display = 'block';
         notifySuccess.style.display = 'none';
+
+// try action decresing
+        if(parseInt(actionValue.innerText)>0){
+            actionValue.innerText = parseInt(actionValue.innerText) -1;
+        }
+        else if(parseInt(actionValue.innerText)==0){
+            alert("Please refresh the page and Try later!!!!");
+        }
     }
+    
+    
 })
